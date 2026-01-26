@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/Navbar.css';
 
 function SideNavLeft({ activeMenu, setActiveMenu }) {
   const menus = [
@@ -15,6 +16,8 @@ function SideNavLeft({ activeMenu, setActiveMenu }) {
           key={menu.id}
           className={`nav-btn ${activeMenu === menu.id ? 'active' : ''}`}
           onClick={() => setActiveMenu(menu.id)}
+          data-icon={menu.icon}
+          data-label={menu.label}
         >
           {menu.icon}
         </button>

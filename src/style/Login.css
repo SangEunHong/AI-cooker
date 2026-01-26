@@ -147,10 +147,10 @@
 
 .gender-buttons button.active {
   border-color: #e67e22;
-  background-color: #e67e22; /* 전체가 주황색으로 */
-  color: white;             /* 글자는 흰색으로 */
+  background-color: #e67e22; 
+  color: white;           
   box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3); /* 은은한 주황색 광채 */
-  transform: translateY(-2px); /* 살짝 위로 떠오르는 효과 */
+  transform: translateY(-2px); 
 }
 
 .gender-buttons button:active {

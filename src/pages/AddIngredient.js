@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import apiClient from '../utils/api';
+import '../style/Fridge.css';
 
 function AddIngredient() {
   const [formData, setFormData] = useState({

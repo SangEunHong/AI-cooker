@@ -1,0 +1,101 @@
+.side-nav.left {
+  position: fixed;      /* 화면 왼쪽에 고정 */
+  left: 0;           /* 왼쪽 벽에서 살짝 띄움 */
+  top: 0;   
+  bottom: 0;  
+  width: 130px;
+  height: 100vh;       
+  
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 0px;            
+  
+  background-color: #fff8e1;
+
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;    
+  box-sizing: border-box;     
+}
+
+.side-nav.right {
+  position: fixed;      
+  right: 0;          
+  top: 0;   
+  bottom: 0;  
+  width: 130px;
+  height: 100vh;       
+  
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 0px;            
+  
+  background-color: #fff8e1;
+
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;    
+  box-sizing: border-box;        
+}
+
+/* 개별 내비게이션 버튼 */
+.nav-btn {
+  width: 100px;          
+  height: 100px;        
+  border-radius: 25px;  
+  border: 3px solid #3e2723;
+  background-color: #757575;
+  font-size: 2.5rem;  
+  /* text-shadow: 0 0 10px  #ffffff; */
+  text-shadow: -2px 0 #3e2723, 0 2px #3e2723, 2px 0 #3e2723, 0 -2px #3e2723;
+  z-index:1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+
+
+
+.nav-btn:hover {
+  background-color: #db7a30;
+  transform: scale(1.1);
+}
+
+/* 활성화된 버튼 스타일 (activeMenu와 일치할 때) */
+.nav-btn.active {
+  background-color: #ea572a; /* 주황색 포인트 */
+  box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+}
+
+/* 활성화된 버튼의 아이콘 색상 (이모지는 해당 안 되지만 텍스트일 경우 대비) */
+.nav-btn.active {
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+}
+
+/* (선택 사항) 버튼 옆에 툴팁처럼 이름을 띄우고 싶다면? */
+.nav-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  background: #3e2723;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.nav-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}

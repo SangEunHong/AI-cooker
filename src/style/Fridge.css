@@ -1,0 +1,99 @@
+.fridgeList {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;       
+  background-color: #fff8e1; 
+  box-sizing: border-box;
+}
+
+.AddListB {
+  /* background-color: white; */
+  width: 100%;
+  max-width: 500px;        /* 너무 퍼지지 않게 제한 */
+  padding: 40px;
+  border-radius: 30px;     /* 부드러운 곡선 */
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
+  text-align: center;      /* 내부 텍스트 중앙 정렬 */
+}
+
+/* 3. 제목 */
+.AddListB h1 {
+  color: #3e2723;         
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  margin-top:-10px;
+  font-size: 3rem;
+}
+
+/* 4. 카테고리 선택 (체크박스 영역) */
+.AddListS {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.category-choice {
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 700;
+  color: #e67e22;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size:2rem;
+}
+
+
+.added-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.added-item label {
+  width: 80px;           
+  font-weight: 700;
+  color: #3e2723;
+}
+
+.added-item input {
+  flex: 1;              
+  padding: 12px 15px;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.added-item input:focus {
+  border-color: #e67e22; 
+}
+
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 20px;   
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #d35400;
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
