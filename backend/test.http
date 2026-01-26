@@ -26,14 +26,31 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
 
 ### 
+POST {{baseUrl}}/ingredients
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
+
+{
+    "name": "삼겹살",
+    "category": "meat",
+    "quantity": "600",
+    "expiry_date": "2026-01-30"
+}
+
+###
 GET {{baseUrl}}/ingredients
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
 
 ###
-POST {{baseUrl}}/chat
+PUT {{baseUrl}}/ingredients/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
 
 {
-    "ingredients": ["계란", "파"],
-    "prompt": "간단한 국 요리 추천해줘"
+    "quantity": "300",
+    "expiry_date": "2026-02-05"
 }
+
+### 3-4. 재료 삭제 (DELETE)
+DELETE {{baseUrl}}/ingredients/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE

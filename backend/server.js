@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { initDb } from './db/connection.js';
 
 import authRouters from './routers/authRouters.js';
-//import fridgeRouters from './routers/fridgeRouters.js';
+import fridgeRouters from './routers/fridgeRouters.js';
 //import chatRouters from './routers/chatRouters.js';
 //import bookmarkRouters from './routers/bookmarksRouters.js';
 
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());  
 
 app.use('/api/auth', authRouters);
-//app.use('/api/ingredients', fridgeRouters);
+app.use('/api/ingredients', fridgeRouters);
 //app.use('/api/bookmarks', bookmarkRouters);
 //app.use('/api', chatRouters);
 
