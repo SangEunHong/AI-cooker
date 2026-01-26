@@ -1,0 +1,158 @@
+
+@font-face {
+    font-family: 'NexonFootballGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicLA1.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonFootballGothic';
+    src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100vw;           
+  height: 100vh;           
+  background-color: #fff8e1; 
+  font-family: 'NexonFootballGothic', sans-serif; 
+  color:#3e2723;
+  font-size:1.5rem;
+}
+
+.auth-form-wrapper h2 {
+  color: #e67e22;      
+  font-weight: 700;    
+  font-size: 2rem;
+  margin: 0;
+}
+
+.auth-form-wrapper {
+  width: 30vw;         
+  height: auto;        
+  background-color: white; /*박스 색상*/
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;     
+  padding: 30px;
+  gap: 20px;              
+}
+
+.form-group input::placeholder {
+  color: #3e2723;    
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 300;
+}
+
+.auth-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e67e22;
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 300;    
+  color: #3e2723;
+}
+
+.form-group input:focus {
+  border: 2px solid #d35400; 
+  background-color: #fffaf0; 
+  outline: none;
+}
+
+/* 버튼 글씨 스타일 */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #e67e22; 
+  border: none;
+  border-radius: 20px;
+  font-weight: 700;   
+  font-family: 'NexonFootballGothic', sans-serif;
+  color: white;        
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s; 
+}
+
+.btn-primary:hover {
+  transform: scale(1.02); 
+  background-color: #d35400; 
+}
+
+
+.auth-link {
+  color: #3e2723;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.auth-link a {
+  color: #e67e22;
+  font-weight: 700;
+  text-decoration: none; 
+}
+
+.auth-link a:hover {
+  text-decoration: underline; 
+}
+
+.gender-buttons{
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.gender-buttons button {
+  flex: 1;
+  padding: 14px 0;    
+  border-radius: 12px;  
+  border: 1px solid #e67e22; 
+  background-color: white; 
+  color: #3e2723;         
+  font-family: 'NexonFootballGothic', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 부드러운 애니메이션 */
+  position: relative;
+  overflow: hidden;
+}
+
+.gender-buttons button:hover {
+  border-color: #e67e22;
+  color: #e67e22;
+  background-color: #fff8e1;
+}
+
+
+.gender-buttons button.active {
+  border-color: #e67e22;
+  background-color: #e67e22; /* 전체가 주황색으로 */
+  color: white;             /* 글자는 흰색으로 */
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3); /* 은은한 주황색 광채 */
+  transform: translateY(-2px); /* 살짝 위로 떠오르는 효과 */
+}
+
+.gender-buttons button:active {
+  transform: translateY(0);
+}
