@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:3001
 
 POST {{baseUrl}}/auth/signup
 Content-Type: application/json
@@ -51,6 +51,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiO
     "expiry_date": "2026-02-05"
 }
 
-### 3-4. 재료 삭제 (DELETE)
+### 
 DELETE {{baseUrl}}/ingredients/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
