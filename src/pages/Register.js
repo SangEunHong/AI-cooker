@@ -7,7 +7,7 @@ import '../style/Login.css';
 function Register() {
   const [formData, setFormData] = useState({
     email: '',
-    password_hash: '',
+    password: '',
     nickname: '',
     age: '',
     gender: ''
@@ -30,7 +30,7 @@ function Register() {
     setError('');
 
 
-    if (formData.password_hash.length < 4) {
+    if (formData.password.length < 4) {
       setError('비밀번호는 4자리 이상이어야 합니다.');
       addNotification('비밀번호는 4자리 이상이어야 합니다.', 'error');
       return;
