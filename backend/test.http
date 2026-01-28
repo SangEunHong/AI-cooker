@@ -23,12 +23,11 @@ Content-Type: application/json
 ###
 GET {{baseUrl}}/auth/my
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
 ### 
 POST {{baseUrl}}/ingredients
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
 
 {
     "name": "삼겹살",
@@ -39,12 +38,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiO
 
 ###
 GET {{baseUrl}}/ingredients
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
 
 ###
-PUT {{baseUrl}}/ingredients/1
+PUT {{baseUrl}}/ingredients/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
 
 {
     "quantity": "300",
@@ -52,5 +51,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiO
 }
 
 ### 
-DELETE {{baseUrl}}/ingredients/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NDQyMDMxLCJleHAiOjE3Njk0NDU2MzF9.ijqMgotQtysKTGIK79zfPwRWSaHbDHU6g7Y2G5RnUsE
+DELETE {{baseUrl}}/ingredients/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
+###
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+  "mode": "fridge",
+  "ingredients": ["계란", "파", "스팸"],
+  "cuisine": "한식"
+}

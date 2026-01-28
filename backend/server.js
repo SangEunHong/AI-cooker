@@ -5,7 +5,8 @@ import { initDb } from './db/connection.js';
 
 import authRouters from './routers/authRouters.js';
 import fridgeRouters from './routers/fridgeRouters.js';
-//import chatRouters from './routers/chatRouters.js';
+import chatRouters from "./routers/chatRouters.js"; 
+import recipeRouters from "./routers/recipeRouters.js";
 //import bookmarkRouters from './routers/bookmarksRouters.js';
 
 dotenv.config();
@@ -18,8 +19,9 @@ app.use(express.json());
 
 app.use('/auth', authRouters);
 app.use('/ingredients', fridgeRouters);
-//app.use('/api/bookmarks', bookmarkRouters);
-//app.use('/api', chatRouters);
+//app.use('/bookmarks', bookmarkRouters);
+app.use('/chat', chatRouters);
+app.use('/recipes', recipeRouters);
 
 app.listen(PORT, async () => {
   try {
