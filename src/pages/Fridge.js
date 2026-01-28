@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import SideNavLeft from '../components/SideNavLeft';
 import SideNavRight from '../components/SideNavRight';
-// 8개의 컴포넌트를 모두 import 합니다.
 import AddIngredient from './AddIngredient'; 
-//import MeatList from './MeatList';
-// ... 나머지 6개 생략
+import FridgeList from './FridgeList';
+import '../style/Fridge.css';
 
 function Fridge() {
   const [activeMenu, setActiveMenu] = useState('add'); // 기본값: 재료 추가
@@ -13,9 +12,9 @@ function Fridge() {
   const renderMain = () => {
     switch (activeMenu) {
       case 'add': return <AddIngredient />;
-      //case 'meat': return <MeatList />;
-      //case 'vege': return <VegetableList />;
-      // ... 총 8개의 케이스를 작성
+      case 'meat': return <FridgeList category="meat"/>;
+      case 'vege': return <FridgeList category="vege"/>;
+      case 'pros': return <FridgeList category="pros"/>;
       default: return <AddIngredient />;
     }
   };

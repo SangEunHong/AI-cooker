@@ -18,7 +18,7 @@ function App() {
             <Route path="/fridge" element={<Fridge />} />
             <Route path="/register" element={<Register />} />
             {/* 기본 접속 시 로그인으로 가도록 설정 */}
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Fridge />} />
           </Routes>
         </Router>
       </AuthProvider>
