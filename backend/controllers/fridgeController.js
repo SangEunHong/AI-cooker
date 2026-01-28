@@ -19,10 +19,10 @@ export const getIngredients = async (req, res) => {
 export const addIngredient = async (req, res) => {
     try {
         const userId = req.user.id;
-        const { name, category, quantity, unit, expiry_date } = req.body;
+        const { name, category, quantity, expiry_date } = req.body;
 
         const result = await pool.query(
-            `INSERT INTO ingredients (user_id, name, category, quantity, unit, expiry_date)
+            `INSERT INTO ingredients (user_id, name, category, quantity, expiry_date)
              VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
             [userId, name, category, quantity, unit, expiry_date]
         );
@@ -41,12 +41,12 @@ export const updateIngredient = async (req, res) => {
     try {
         const userId = req.user.id;
         const ingredientId = req.params.id;
-        const { quantity, expiry_date } = req.body;
+        const { name, category, quantity, expiry_date } = req.body;
 
         const result = await pool.query(
             `UPDATE ingredients 
-             SET quantity = $1, expiry_date = $2 
-             WHERE id = $3 AND user_id = $4`,
+             SET name = $1, category = $2, quantity = $3, expiry_date = $4 
+             WHERE id = $5 AND user_id = $6`,
             [quantity, expiry_date, ingredientId, userId]
         );
 

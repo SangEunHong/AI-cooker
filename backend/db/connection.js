@@ -38,7 +38,6 @@ const initDb = async () => {
         name VARCHAR(100) NOT NULL,
         category VARCHAR(50),
         quantity VARCHAR(50),
-        unit VARCHAR(20),
         expiry_date DATE
       );
     `);
