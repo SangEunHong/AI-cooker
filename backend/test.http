@@ -53,12 +53,46 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiO
 ### 
 DELETE {{baseUrl}}/ingredients/3
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTc2OTg3LCJleHAiOjE3Njk1ODA1ODd9.3Yf2uEjlDMmpeLhHcBrVuwZgendB5U9sduNDOTXjZRw
-###
+
+### 
 POST {{baseUrl}}/chat
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTg2MDEzLCJleHAiOjE3Njk1ODk2MTN9.GAm_ZlxkmfQoO-M5z6x7XLCIM61OTlT3YGoZ9hvXs84
 
 {
-  "mode": "fridge",
-  "ingredients": ["계란", "파", "스팸"],
-  "cuisine": "한식"
+    "mode": "fridge",
+    "ingredients": [
+        "삼겹살(300g)", 
+        "김치(1/4포기)", 
+        "두부(1모)", 
+        "대파(1/2단)"
+    ],
+    "cuisine": "한식",
+    "user_prompt": "국물 자박한 찌개 종류로 추천해줘"
+}
+
+### 3. AI 요리사 테스트 (재료가 부족한 상황 시뮬레이션)
+### 기대 결과: AI가 "계란 1개로는 부족하니 ~한 요리는 뺍니다" 라고 판단하는지 확인
+POST {{baseUrl}}/chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTg2MDEzLCJleHAiOjE3Njk1ODk2MTN9.GAm_ZlxkmfQoO-M5z6x7XLCIM61OTlT3YGoZ9hvXs84
+
+{
+    "mode": "fridge",
+    "ingredients": [
+        "계란(1개)", 
+        "밥(1공기)"
+    ],
+    "cuisine": "간단요리"
+}
+
+### 4. AI 요리사 테스트 (자유 채팅 모드)
+### 냉장고 재료 없이 그냥 물어볼 때
+POST {{baseUrl}}/chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGVmQHRlc3QuY29tIiwiaWF0IjoxNzY5NTg2MDEzLCJleHAiOjE3Njk1ODk2MTN9.GAm_ZlxkmfQoO-M5z6x7XLCIM61OTlT3YGoZ9hvXs84
+
+{
+    "mode": "chat",
+    "user_prompt": "비 오는 날 막걸리랑 먹기 좋은 안주 추천해줘"
 }
