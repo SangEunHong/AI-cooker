@@ -3,6 +3,8 @@ import SideNavLeft from '../components/SideNavLeft';
 import SideNavRight from '../components/SideNavRight';
 import AddIngredient from './AddIngredient'; 
 import FridgeList from './FridgeList';
+import Chatting from './Chatting';
+import EditIngredient from './Editingredient';
 import '../style/Fridge.css';
 
 function Fridge() {
@@ -12,16 +14,16 @@ function Fridge() {
   const renderMain = () => {
     switch (activeMenu) {
       case 'add': return <AddIngredient />;
-      case 'meat': return <FridgeList category="meat"/>;
-      case 'vege': return <FridgeList category="vege"/>;
-      case 'pros': return <FridgeList category="pros"/>;
-      default: return <AddIngredient />;
+      case 'list': return <FridgeList/>;
+      case 'ai-chat': return <Chatting/>;
+      case 'edit':return <EditIngredient/>;
+      default: return <FridgeList />;
     }
   };
 
   return (
     <div className="fridge-container">
-      {/* 왼쪽 네비게이션 (4개 버튼) */}
+      {/* 왼쪽 네비게이션 (3개 버튼) */}
       <SideNavLeft activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
 
       <main className="fridge-main">

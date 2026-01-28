@@ -3,9 +3,8 @@ import '../style/Navbar.css';
 
 function SideNavLeft({ activeMenu, setActiveMenu }) {
   const menus = [
-    { id: 'meat', label: '육류', icon: '🥩' },
-    { id: 'vege', label: '채소', icon: '🥦' },
-    { id: 'pros', label: '가공육', icon: '🥫' },
+    { id: 'list', label: '냉장고', icon: '❄️' },
+    { id: 'edit', label: '재료 편집', icon: '✂️' },
     { id: 'add', label: '재료 추가', icon: '➕' }
   ];
 

@@ -1,0 +1,60 @@
+.chat-room-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* 화면의 90% 정도 차지 */
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 가로 꽉 차는 냉장고 버튼 */
+.fridge-full-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.fridge-full-btn.active { background-color: #2980b9; }
+
+/* 재료 서랍 */
+.fridge-drawer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: white;
+}
+.fridge-drawer.open {
+  max-height: 250px;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 하단 입력창 줄 */
+.chat-input-row {
+  display: flex;
+  padding: 10px;
+  background: white;
+  gap: 10px;
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

@@ -39,9 +39,9 @@ export const AuthProvider = ({ children }) => {
             const response = await apiClient.post("/auth/login", { email, password });
             // Handle both { data: { token, user } } and { token, user } patterns
             const data = response.data.data || response.data;
-            const { token, user } = data;
+            const { token, nickname } = data;
             
-            if (!token || !user) {
+            if (!token || !nickname) {
                 throw new Error("Invalid response from server");
             }
 

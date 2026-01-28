@@ -51,6 +51,8 @@ function AddIngredient() {
       <main className="AddListB">
           <div> 
             <h1>재료 추가</h1>
+
+            <hr />
             
             <div className="AddListS">
               <label className="category-choice">
@@ -63,18 +65,19 @@ function AddIngredient() {
               <label className="category-choice">
                 <input 
                   type="checkbox" 
-                  checked={formData.category === 'vegetable'} 
-                  onChange={() => handleCategoryChange('vegetable')} 
+                  checked={formData.category === 'vege'} 
+                  onChange={() => handleCategoryChange('vege')} 
                 /> 채소
               </label>
               <label className="category-choice">
                 <input 
                   type="checkbox" 
-                  checked={formData.category === 'processed'} 
-                  onChange={() => handleCategoryChange('processed')} 
-                /> 가공육
+                  checked={formData.category === 'sauce'} 
+                  onChange={() => handleCategoryChange('sauce')} 
+                /> 소스
               </label>
             </div>
+
 
             <div className="added-item">
               <label>이름 : </label>
@@ -91,7 +94,7 @@ function AddIngredient() {
               <input type="date" name="expiry_date" value={formData.expiry_date} onChange={handleChange} required />
             </div>
 
-            <button className="btn-submit" onClick={handleSubmit}>냉장고에 넣기</button>
+            <button className="btn-submit2" onClick={handleSubmit}>냉장고에 넣기</button>
           </div> 
       </main>
 

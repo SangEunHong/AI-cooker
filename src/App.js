@@ -1,10 +1,11 @@
 // App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext'; // 👈 가져오기
-import { NotificationProvider } from './context/NotificationContext'; // 👈 가져오기
+import { AuthProvider } from './context/AuthContext'; 
+import { NotificationProvider } from './context/NotificationContext'; 
 import Login from './pages/Login';
 import Fridge from './pages/Fridge';
 import Register from './pages/Register';
+import Chatting from './pages/Chatting';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/fridge" element={<Fridge />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/chat" element={<Chatting/>}/>
             {/* 기본 접속 시 로그인으로 가도록 설정 */}
             <Route path="/" element={<Fridge />} />
           </Routes>
