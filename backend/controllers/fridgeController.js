@@ -23,8 +23,8 @@ export const addIngredient = async (req, res) => {
 
         const result = await pool.query(
             `INSERT INTO ingredients (user_id, name, category, quantity, expiry_date)
-             VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
-            [userId, name, category, quantity, unit, expiry_date]
+             VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+            [userId, name, category, quantity, expiry_date]
         );
 
         res.status(201).json({ 
@@ -47,7 +47,7 @@ export const updateIngredient = async (req, res) => {
             `UPDATE ingredients 
              SET name = $1, category = $2, quantity = $3, expiry_date = $4 
              WHERE id = $5 AND user_id = $6`,
-            [quantity, expiry_date, ingredientId, userId]
+            [name, category, quantity, expiry_date, ingredientId, userId]
         );
 
         if (result.rowCount === 0) {
