@@ -5,18 +5,21 @@ import AddIngredient from './AddIngredient';
 import FridgeList from './FridgeList';
 import Chatting from './Chatting';
 import EditIngredient from './Editingredient';
+import Mypage from './Mypage';
+import Community from './Community';
 import '../style/Fridge.css';
 
 function Fridge() {
   const [activeMenu, setActiveMenu] = useState('add'); // 기본값: 재료 추가
 
-  // 현재 activeMenu에 따라 어떤 컴포넌트를 보여줄지 결정하는 함수
   const renderMain = () => {
     switch (activeMenu) {
       case 'add': return <AddIngredient />;
       case 'list': return <FridgeList/>;
       case 'ai-chat': return <Chatting/>;
       case 'edit':return <EditIngredient/>;
+      case 'my-page':return <Mypage/>;
+      case 'community':return <Community/>;
       default: return <FridgeList />;
     }
   };

@@ -1,4 +1,3 @@
-// App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext'; 
 import { NotificationProvider } from './context/NotificationContext'; 
@@ -6,6 +5,9 @@ import Login from './pages/Login';
 import Fridge from './pages/Fridge';
 import Register from './pages/Register';
 import Chatting from './pages/Chatting';
+import Mypage from './pages/Mypage';
+import Community from './pages/Community';
+
 
 function App() {
   return (
@@ -19,8 +21,10 @@ function App() {
             <Route path="/fridge" element={<Fridge />} />
             <Route path="/register" element={<Register />} />
             <Route path="/chat" element={<Chatting/>}/>
+            <Route path="/my-page" element={<Mypage/>}/>
+            <Route path="/community" element={<Community/>}/>
             {/* 기본 접속 시 로그인으로 가도록 설정 */}
-            <Route path="/" element={<Fridge />} />
+            <Route path="/" element={<Login />} />
           </Routes>
         </Router>
       </AuthProvider>

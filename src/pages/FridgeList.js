@@ -5,23 +5,20 @@ import '../style/Fridge.css';
 function FridgeList() {
   const [ingredients, setIngredients] = useState([]); 
   const [loading, setLoading] = useState(true);
-  const [category, setCategory] = useState('');
-
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    document.body.style.backgroundColor = '#fff8e1';
-    document.body.style.margin = '0';
+    // 배경색은 CSS의 var(--bg-color)가 처리하므로 깔끔하게 유지됩니다.
     const fetchIngredients = async () => {
       try {
         const response = await apiClient.get("/ingredients");
         setIngredients(response.data);
       } catch (error) {
-        console.error("재료를 가져오는데 실패했습니다:", error);
+        console.error("실패:", error);
       } finally {
         setLoading(false);
       }
     };
-
     fetchIngredients();
   }, []);
 
@@ -29,75 +26,57 @@ function FridgeList() {
     category.length === 0 ? true : category.includes(item.category)
   );
 
-
   const toggleCategory = (cat) => {
-  setCategory(prev =>
-    prev.includes(cat)
-      ? prev.filter(c => c !== cat) // 이미 선택돼 있으면 제거
-      : [...prev, cat]              // 선택 안 돼 있으면 추가
-  );
-};
+    setCategory(prev =>
+      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+    );
+  };
 
   if (loading) return <div className="LoadingList">냉장고 확인 중...</div>;
 
   return (
-    <div className="fridge-container">
-      <main className="ingredientListB">
-        <div>
-          <header className="fridge-header"><h1>나의 냉장고</h1>
+    /* 수정 1: 컨테이너 클래스를 fridgeList로 확실히 고정 */
+    <div className="fridgeList"> 
+      {/* 수정 2: 메인 카드 클래스를 AddListB로 사용 (CSS의 max-width: 850px 적용 지점) */}
+      <main className="AddListB"> 
+        <h1>나의 냉장고</h1>
 
-          <div className="AddListS">
-            <label className="category-choice">
+        <div className="AddListS">
+          {['meat', 'vege', 'sauce'].map(cat => (
+            <label key={cat} className="category-choice">
               <input 
                 type="checkbox" 
-                checked={category.includes('meat')}
-                onChange={() => toggleCategory('meat')}
-              /> 육류
+                checked={category.includes(cat)}
+                onChange={() => toggleCategory(cat)}
+              /> {cat === 'meat' ? '육류' : cat === 'vege' ? '채소' : '소스'}
             </label>
-            <label className="category-choice">
-              <input 
-                type="checkbox" 
-                checked={category.includes('vege')} 
-                onChange={() => toggleCategory('vege')}
-              /> 채소
-            </label>
-            <label className="category-choice">
-              <input 
-                type="checkbox" 
-                checked={category.includes('sauce')} 
-                onChange={() => toggleCategory('sauce')}
-              /> 소스
-            </label>
-          </div></header>
+          ))}
+        </div>
 
-          <div className="ingredientListS">
-            {filterIngredients.length === 0 ? (
-              <p>재료가 없어요.</p>
-              ) : (
+        <hr />
 
-                <ul className="ingredient-list">
-                  {filterIngredients.map(item => (
-                    <li key={item.id} className="ingredient-item">
-                      <div className="info">
-                        <div className="left-group">
-                          <span className="name">{item.name}</span>
-                          <span className="quantity">
-                            {item.quantity}{item.category==='meat'?'g':item.category==='vege'?'개':''}
-                          </span>
-                        </div>
-
-                        {item.expiry_date && (
-                          <span className="expiry">
-                            {new Date(item.expiry_date).toLocaleDateString()}
-                          </span>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-
-            )}
-          </div>
+        <div className="ingredientListS">
+          {filterIngredients.length === 0 ? (
+            <p className="empty-msg">재료가 없어요.</p>
+          ) : (
+            <ul className="ingredient-list">
+              {filterIngredients.map(item => (
+                <li key={item.id} className="ingredient-item">
+                  <div className="info">
+                    <span className="name">{item.name}</span>
+                    <span className="quantity">
+                      {item.quantity}{item.category==='meat'?'g':item.category==='vege'?'개':''}
+                    </span>
+                    {item.expiry_date && (
+                      <span className="expiry">
+                        {new Date(item.expiry_date).toLocaleDateString()}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </main>
     </div>

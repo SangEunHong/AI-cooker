@@ -4,7 +4,6 @@ import '../style/Navbar.css';
 function SideNavRight({ activeMenu, setActiveMenu }) {
   const menus = [
     { id: 'ai-chat', label: 'AI채팅', icon: '💬' },
-    { id: 'cook', label: '요리모드', icon: '🍽️' },
     { id: 'community', label: '커뮤니티', icon: '👩🏻‍👧🏻‍👦🏻' },
     { id: 'my-page', label: '마이페이지', icon: '🙂' }
   ];

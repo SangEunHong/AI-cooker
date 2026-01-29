@@ -67,6 +67,7 @@ function EditIngredient() {
     } catch (error) {
       alert("수정 실패");
     }
+    console.log("보내는 데이터:", formData);
   };
 
   const handleDelete = async () => {
@@ -90,7 +91,7 @@ function EditIngredient() {
         <div>
           <h1>재료 관리</h1>
           <div className="added-item">
-            <label>수정/삭제 대상 : </label>
+            <label>편집 대상 : </label>
             <select value={selectedId} onChange={handleSelectChange} className="category-select">
               <option value="">-- 재료를 선택하세요 --</option>
               {ingredients.map(item => (
