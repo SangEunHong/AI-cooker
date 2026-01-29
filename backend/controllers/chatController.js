@@ -88,7 +88,10 @@ export const chat = async (req, res) => {
           ],
           "difficulty": "하",
           "time_taken": "10분",
-          "steps": [ ... ]
+          "steps": [
+            { "step_no": 1, "instruction": "물을 끓이세요.", "timer_sec": 0 },
+            { "step_no": 2, "instruction": "면을 넣고 3분간 삶으세요.", "timer_sec": 180 }
+          ]
         }
       ]
       

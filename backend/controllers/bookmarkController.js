@@ -32,7 +32,7 @@ export const getMyBookmarks = async (req, res) => {
         const userId = req.user.id;
         const { keyword } = req.query;
         
-        const query = `
+        let query = `
             SELECT 
                 b.id AS bookmark_id, 
                 b.created_at,
@@ -44,25 +44,28 @@ export const getMyBookmarks = async (req, res) => {
             FROM bookmarks b
             JOIN recipes r ON b.recipe_id = r.id
             WHERE b.user_id = $1
-            ORDER BY b.created_at DESC
         `;
         const queryParams = [userId];
 
         if (keyword) {
-            // $2 파라미터로 검색어 추가
-            // 제목(title) 또는 재료(ingredients_key - JSONB/Text)에 키워드가 포함되는지 확인
             query += ` AND (r.title LIKE $2 OR r.ingredients_key::text LIKE $2) `;
             queryParams.push(`%${keyword}%`);
         }
 
         query += ` ORDER BY b.created_at DESC`;
-
         const result = await pool.query(query, queryParams);
 
         const bookmarks = result.rows.map(row => ({
-            ...row,
-            content: typeof row.content === 'string' ? JSON.parse(row.content) : row.content,
-            ingredients: typeof row.ingredients_key === 'string' ? JSON.parse(row.ingredients_key) : row.ingredients_key
+            bookmark_id: row.bookmark_id,
+            created_at: row.created_at,
+            
+            recipe: {
+                id: row.recipe_id,
+                title: row.title,
+                ingredients: typeof row.ingredients_key === 'string' ? JSON.parse(row.ingredients_key) : row.ingredients_key,
+                content: typeof row.content === 'string' ? JSON.parse(row.content) : row.content,
+                view_count: row.view_count
+            }
         }));
 
         res.json(bookmarks);

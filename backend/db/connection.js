@@ -75,7 +75,7 @@ const initDb = async () => {
     `);
 
     await client.query(`
-      CREATE TABLE community_posts (
+      CREATE TABLE IF NOT EXISTS community_posts (
         id SERIAL PRIMARY KEY,
         user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
         recipe_id INTEGER REFERENCES recipes(id) ON DELETE SET NULL,
@@ -87,7 +87,7 @@ const initDb = async () => {
     `);
 
     await client.query(`
-      CREATE TABLE community_comments (
+      CREATE TABLE IF NOT EXISTS community_comments (
         id SERIAL PRIMARY KEY,
         post_id INTEGER NOT NULL REFERENCES community_posts(id) ON DELETE CASCADE,
         user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -97,7 +97,7 @@ const initDb = async () => {
     `)
 
     await client.query(`
-      CREATE TABLE community_likes (
+      CREATE TABLE IF NOT EXISTS community_likes (
         post_id INTEGER NOT NULL REFERENCES community_posts(id) ON DELETE CASCADE,
         user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
