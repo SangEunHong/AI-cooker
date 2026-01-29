@@ -29,7 +29,7 @@ const initDb = async () => {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
-
+    await client.query(`ALTER TABLE users ADD COLUMN role VARCHAR(10) DEFAULT 'user';`);
 
     await client.query(`
       CREATE TABLE IF NOT EXISTS ingredients (

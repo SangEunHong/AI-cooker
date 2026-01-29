@@ -119,3 +119,45 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiO
 ### 3. 북마크 취소 (삭제)
 DELETE {{baseUrl}}/bookmarks/25
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjA1NzcsImV4cCI6MTc2OTY2NDE3N30.OXgyaBdFncWk44EGzlpF6A6OimM6bGJ4Ja-0e3sTX2k
+
+### 1. 마이페이지 내 정보 조회
+GET {{baseUrl}}/auth/my
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjI0MzksImV4cCI6MTc2OTY2NjAzOX0.I98huXc1uyEdlAB91ByvLzEZv7zfhXOz6ytKxtyjYWY
+
+### 2. 내 정보 수정 (닉네임만)
+PUT {{baseUrl}}/auth/my
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjI0MzksImV4cCI6MTc2OTY2NjAzOX0.I98huXc1uyEdlAB91ByvLzEZv7zfhXOz6ytKxtyjYWY
+
+{
+    "nickname": "요리왕"
+}
+
+### 3. 내 정보 수정 (비밀번호 변경)
+PUT {{baseUrl}}/auth/my
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjI0MzksImV4cCI6MTc2OTY2NjAzOX0.I98huXc1uyEdlAB91ByvLzEZv7zfhXOz6ytKxtyjYWY
+
+
+{
+    "password": "qwer1234!"
+}
+
+### 4. 회원 탈퇴 (비밀번호 틀렸을 때 -> 401 에러 예상)
+DELETE {{baseUrl}}/auth/withdraw
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjI0MzksImV4cCI6MTc2OTY2NjAzOX0.I98huXc1uyEdlAB91ByvLzEZv7zfhXOz6ytKxtyjYWY
+
+{
+    "password": "qwer1234"
+}
+
+### 5. 회원 탈퇴 (성공)
+DELETE {{baseUrl}}/auth/withdraw
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzc2Vlam0xM0BuYXZlci5jb20iLCJpYXQiOjE3Njk2NjI0MzksImV4cCI6MTc2OTY2NjAzOX0.I98huXc1uyEdlAB91ByvLzEZv7zfhXOz6ytKxtyjYWY
+
+{
+    "password": "new_password_1234" 
+    # (위에서 비번을 바꿨다면 바뀐 비번을 입력해야 함)
+}
