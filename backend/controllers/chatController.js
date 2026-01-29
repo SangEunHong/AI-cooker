@@ -5,7 +5,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = genAI.getGenerativeModel({ 
+    model: "gemini-2.5-flash",
+    generationConfig: {
+        temperature: 0.3, 
+    }
+});
 
 export const chat = async (req, res) => {
   try {
@@ -71,6 +76,12 @@ export const chat = async (req, res) => {
          - 예시: "1큰술(15ml)", "1작은술(5ml)", "1컵(200ml)"
       2. 밥숟가락 계량이 더 편한 재료는 "1큰술(밥숟가락 2개)" 처럼 현실적인 가이드를 덧붙여도 좋아.
       
+      [중요 규칙 - 요리 이름 작명 표준화]:
+      1. 요리 이름은 수식어(맛있는, 매콤한, 할머니표 등)를 모두 제거하고, '표준 명칭'만 사용해.
+      2. 형식: "[주재료] [조리법]" 또는 "통용되는 고유 명사"
+         - 나쁜 예: "입맛 돋우는 매콤 달콤 제육 볶음", "자취생 간단 계란밥", "토마토 스크램블"
+         - 좋은 예: "제육볶음", "간장계란밥", "토마토 달걀 볶음"
+
       반드시 아래의 JSON 포맷(Array)으로만 답변해줘. 마크다운(\`\`\`json)이나 사족은 붙이지 말아줘.
 
       [형식 예시]

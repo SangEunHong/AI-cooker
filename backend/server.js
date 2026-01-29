@@ -27,7 +27,6 @@ app.listen(PORT, async () => {
   try {
         await initDb(); // 서버 켜질 때 테이블 없으면 자동 생성
         console.log(`Server is running on port ${PORT}`);
-        console.log(`API Ready: http://localhost:${PORT}/auth/signup`);
       } catch (error) {
         console.error("Server start failed:", error);
       }
