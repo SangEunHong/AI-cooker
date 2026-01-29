@@ -10,7 +10,7 @@ import Community from './Community';
 import '../style/Fridge.css';
 
 function Fridge() {
-  const [activeMenu, setActiveMenu] = useState('add'); // 기본값: 재료 추가
+  const [activeMenu, setActiveMenu] = useState('list'); // 기본값: 재료 추가
 
   const renderMain = () => {
     switch (activeMenu) {
