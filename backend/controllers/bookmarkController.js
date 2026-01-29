@@ -30,13 +30,15 @@ export const addBookmark = async (req, res) => {
 export const getMyBookmarks = async (req, res) => {
     try {
         const userId = req.user.id;
-
+        const { keyword } = req.query;
+        
         const query = `
             SELECT 
                 b.id AS bookmark_id, 
                 b.created_at,
                 r.id AS recipe_id, 
                 r.title, 
+                r.ingredients_key,
                 r.content, 
                 r.view_count 
             FROM bookmarks b
@@ -44,12 +46,23 @@ export const getMyBookmarks = async (req, res) => {
             WHERE b.user_id = $1
             ORDER BY b.created_at DESC
         `;
+        const queryParams = [userId];
 
-        const result = await pool.query(query, [userId]);
+        if (keyword) {
+            // $2 파라미터로 검색어 추가
+            // 제목(title) 또는 재료(ingredients_key - JSONB/Text)에 키워드가 포함되는지 확인
+            query += ` AND (r.title LIKE $2 OR r.ingredients_key::text LIKE $2) `;
+            queryParams.push(`%${keyword}%`);
+        }
+
+        query += ` ORDER BY b.created_at DESC`;
+
+        const result = await pool.query(query, queryParams);
 
         const bookmarks = result.rows.map(row => ({
             ...row,
-            content: typeof row.content === 'string' ? JSON.parse(row.content) : row.content
+            content: typeof row.content === 'string' ? JSON.parse(row.content) : row.content,
+            ingredients: typeof row.ingredients_key === 'string' ? JSON.parse(row.ingredients_key) : row.ingredients_key
         }));
 
         res.json(bookmarks);
