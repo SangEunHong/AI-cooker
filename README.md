@@ -229,7 +229,7 @@ AI-COOKER
 
 - ```POST /chat``` (mode: fridge | chat)
 
-- ```GET /recipes/:id``
+- ```GET /recipes/:id```
 
 - ```GET /chat/history``` (확장기능) 
 
